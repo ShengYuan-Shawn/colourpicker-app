@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
           navigateToSliderPageStatic(context);
         },
         backgroundColor: Colors.black,
-        child: const Icon(Icons.brush),
+        child: const Icon(Icons.colorize),
         tooltip: 'Colour Slider',
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:navigation/home_page.dart';
 
 class RGBSliderPage extends StatelessWidget {
   const RGBSliderPage({Key? key}) : super(key: key);
@@ -78,8 +79,33 @@ class _ColourSliderState extends State<ColourSlider> {
               shape: BoxShape.circle),
         ),
         ElevatedButton(
-          onPressed: () {
-            Navigator.of(context).pop(bgColor);
+          onPressed: () => {
+            Navigator.of(context).pop(MaterialPageRoute(builder: (context) {
+              return HomePage();
+            })),
+            showDialog<String>(
+              context: context,
+              builder: (BuildContext context) => AlertDialog(
+                content: Row(
+                  children: [
+                    Text('The color you picked is ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontFamily: 'Poppins',
+                      fontSize: 20
+                      )
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(4),
+                      width: 20,
+                      height: 20,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(redVal, greenVal, blueVal, 1.0),
+                        shape: BoxShape.circle),
+                    )
+                  ]),
+              )
+            )
           },
           child: Text('Add This To My Palette!'),
         ),
